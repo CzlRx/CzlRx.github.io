@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title">
+  <title id="title">CzlRx 的个人博客</title>
+  <rect width="1200" height="630" fill="#F6F1E8"/>
+  <path d="M0 518c210-88 366-79 532 3 193 96 390 82 668-55v164H0Z" fill="#E8DACE"/>
+  <circle cx="1004" cy="132" r="64" fill="#B5533C"/>
+  <path d="M72 92h320" stroke="#D8D0C3" stroke-width="2"/>
+  <text x="72" y="140" fill="#B5533C" font-family="Arial,sans-serif" font-size="25" letter-spacing="7">PERSONAL NOTES · BACKEND · LIFE</text>
+  <text x="72" y="300" fill="#1F1E1A" font-family="Georgia,'Noto Serif CJK SC',serif" font-size="78" font-weight="700">CzlRx的个人博客</text>
+  <text x="76" y="375" fill="#716B61" font-family="Arial,'Microsoft YaHei',sans-serif" font-size="32">正在努力成为一名后端工程师</text>
+  <text x="76" y="548" fill="#716B61" font-family="Georgia,serif" font-size="24">把复杂的问题拆开，也把路上的微小发现认真记下来。</text>
+</svg>

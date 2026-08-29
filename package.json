@@ -1,0 +1,44 @@
+{
+  "name": "czlrx-blog",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build && node scripts/generate-static-files.mjs && pagefind --site out",
+    "start": "npx serve out",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@tailwindcss/postcss": "latest",
+    "github-slugger": "latest",
+    "gray-matter": "latest",
+    "mdast-util-to-string": "latest",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "reading-time": "latest",
+    "rehype-autolink-headings": "latest",
+    "rehype-external-links": "latest",
+    "rehype-pretty-code": "latest",
+    "rehype-raw": "latest",
+    "rehype-slug": "latest",
+    "rehype-stringify": "latest",
+    "remark-gfm": "latest",
+    "remark-parse": "latest",
+    "remark-rehype": "latest",
+    "tailwindcss": "latest",
+    "unified": "latest",
+    "unist-util-visit": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "eslint": "latest",
+    "eslint-config-next": "latest",
+    "pagefind": "latest",
+    "typescript": "latest"
+  }
+}

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 800" role="img" aria-labelledby="title desc">
+  <title id="title">CzlRx 的抽象头像</title>
+  <desc id="desc">米白背景上由陶土橙和深色几何线条组成的抽象侧脸</desc>
+  <rect width="640" height="800" fill="#EDE4D6"/>
+  <circle cx="470" cy="170" r="94" fill="#D9B9A6"/>
+  <path d="M116 620c35-200 112-352 246-389 90-25 168 27 181 119 16 111-62 161-90 229-19 47-3 102 31 169H116V620Z" fill="#B5533C"/>
+  <path d="M266 261c-32 84-16 177 50 230 43 35 84 42 122 25-11 72-66 132-150 142-83 10-146-36-172-94 22-142 74-257 150-303Z" fill="#24221D"/>
+  <path d="M358 267c70 25 104 90 80 151-17 44-52 69-97 73-41-47-63-102-57-165 19-34 43-54 74-59Z" fill="#F6F1E8"/>
+  <path d="M373 344c24-10 49-8 69 5" fill="none" stroke="#24221D" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="407" cy="371" r="8" fill="#24221D"/>
+  <path d="M417 403c-11 19-10 36 7 50" fill="none" stroke="#B5533C" stroke-width="7" stroke-linecap="round"/>
+  <path d="M310 672c56-27 122-26 197 4" fill="none" stroke="#E7C7B8" stroke-width="11" stroke-linecap="round"/>
+  <text x="50" y="72" fill="#716B61" font-family="Georgia,serif" font-size="28" letter-spacing="5">CZLRX · 2026</text>
+</svg>
