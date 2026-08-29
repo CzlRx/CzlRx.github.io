@@ -7,7 +7,7 @@ import { NoteItem } from "@/components/NoteItem";
 import { ProjectCard } from "@/components/ProjectCard";
 import { siteConfig } from "@/config/site";
 import { getAllArticles, getAllNotes, getAllProjects } from "@/lib/content";
-import { absoluteUrl, githubRepositoryUrl, withBasePath } from "@/lib/paths";
+import { absoluteUrl, githubProfileUrl, withBasePath } from "@/lib/paths";
 
 export const metadata: Metadata = {
   title: { absolute: siteConfig.name },
@@ -31,7 +31,7 @@ export default function HomePage() {
           <p className="home-lead">{siteConfig.description}。这里记录我对后端工程、计算机基础和日常生活的理解，不追求高频，只希望每次写下的东西都足够诚实。</p>
           <div className="home-links">
             <Link className="button-link button-link-primary" href="/articles/">开始阅读<ArrowUpRightIcon /></Link>
-            <a className="button-link" href={githubRepositoryUrl()} target="_blank" rel="noopener noreferrer"><GithubIcon />GitHub</a>
+            <a className="button-link" href={githubProfileUrl()} target="_blank" rel="noopener noreferrer"><GithubIcon />GitHub</a>
             <a className="button-link" href={`mailto:${siteConfig.email}`}><MailIcon />邮件</a>
             <a className="button-link" href={withBasePath("/rss.xml")}><RssIcon />RSS</a>
           </div>

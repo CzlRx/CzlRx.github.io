@@ -31,6 +31,6 @@ export function absoluteUrl(path = "/"): string {
   return `${getSiteOrigin()}${withBasePath(path)}`;
 }
 
-export function githubRepositoryUrl(): string {
-  return `https://github.com/${siteConfig.githubUsername}/${siteConfig.repositoryName}`;
+export function githubProfileUrl(): string {
+  return `https://github.com/${siteConfig.githubUsername}`;
 }

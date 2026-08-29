@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { GithubIcon, MailIcon, RssIcon } from "@/components/icons";
 import { siteConfig } from "@/config/site";
-import { githubRepositoryUrl, withBasePath } from "@/lib/paths";
+import { githubProfileUrl, withBasePath } from "@/lib/paths";
 
 export function Footer() {
   return (
@@ -17,7 +17,7 @@ export function Footer() {
           <Link href="/search/">搜索</Link>
         </nav>
         <div className="footer-social">
-          <a href={githubRepositoryUrl()} target="_blank" rel="me noopener noreferrer" aria-label="GitHub"><GithubIcon /></a>
+          <a href={githubProfileUrl()} target="_blank" rel="me noopener noreferrer" aria-label="GitHub"><GithubIcon /></a>
           <a href={`mailto:${siteConfig.email}`} aria-label="发送邮件"><MailIcon /></a>
           <a href={withBasePath("/rss.xml")} aria-label="订阅 RSS"><RssIcon /></a>
         </div>
