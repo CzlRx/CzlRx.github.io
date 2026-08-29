@@ -11,7 +11,7 @@ cover: /images/project-observer.svg
 demo: ""
 repository: https://github.com/CzlRx
 featured: true
-draft: false
+draft: true
 ---
 
 它读取一组本地 JSON 日志，按照路由、状态码和耗时区间进行聚合。没有做成通用监控平台，而是刻意保留一个窄目标：帮助我在课程项目里快速找到最慢的一组请求。

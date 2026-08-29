@@ -4,7 +4,7 @@ date: 2026-08-25
 tags:
   - MySQL
   - 调试
-draft: false
+draft: true
 ---
 
 今天重新看一条查询的 `EXPLAIN ANALYZE`，发现自己以前太容易停在“用了哪个索引”。

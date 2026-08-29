@@ -8,7 +8,7 @@ tags:
   - 随想
 cover: /images/cover-learning.svg
 featured: false
-draft: false
+draft: true
 ---
 
 教程擅长给出一条平整的路：创建项目、复制配置、运行成功。但真实开发的难处通常藏在教程替你决定的地方——数据怎样建模、错误怎样返回、什么时候需要缓存，以及功能做到什么程度才算完整。
