@@ -10,7 +10,10 @@ import { absoluteUrl } from "@/lib/paths";
 
 interface NotePageProps { params: Promise<{ slug: string }> }
 
-export function generateStaticParams() { return getAllNotes().map(({ slug }) => ({ slug })); }
+export function generateStaticParams() {
+  const notes = getAllNotes();
+  return notes.length ? notes.map(({ slug }) => ({ slug })) : [{ slug: "__no_published_notes__" }];
+}
 
 export async function generateMetadata({ params }: NotePageProps): Promise<Metadata> {
   const note = getNote((await params).slug);

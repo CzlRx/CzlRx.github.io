@@ -11,7 +11,7 @@ cover: /images/project-schedule.svg
 demo: ""
 repository: https://github.com/CzlRx
 featured: true
-draft: true
+draft: false
 ---
 
 课程项目最初只是一个 CRUD 练习，后来我把重点放在“周次”这种不规则时间模型上。课程并不是每周都发生，调课也不能直接覆盖原始安排。
