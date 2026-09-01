@@ -43,6 +43,10 @@ function byDate<T extends { date: string }>(a: T, b: T): number {
   return new Date(b.date).getTime() - new Date(a.date).getTime();
 }
 
+function byLastModified<T extends { date: string; updated?: string }>(a: T, b: T): number {
+  return new Date(b.updated ?? b.date).getTime() - new Date(a.updated ?? a.date).getTime();
+}
+
 export function getAllArticles(): Article[] {
   const articles = listMarkdownFiles("articles").map((file) => {
     const { slug, data, body } = readEntry("articles", file);
@@ -62,6 +66,10 @@ export function getAllArticles(): Article[] {
     };
   });
   return visible(articles).sort(byDate);
+}
+
+export function getRecentlyUpdatedArticles(limit = 3): Article[] {
+  return getAllArticles().sort(byLastModified).slice(0, limit);
 }
 
 export function getArticle(slug: string): Article | undefined {

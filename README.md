@@ -49,11 +49,16 @@ npm run start
 - 邮箱与 GitHub 用户名
 - 仓库名与默认网站域名
 - 头像、默认分享图、主题色
-- 导航与“现在”摘要
+- 导航、“现在”摘要与现在页正文
+- 关于页标题、方向与正文
 
 当前 `repositoryName` 使用 `MyBlog`，请在仓库名不同时修改。默认头像和分享图在 `public/images/`，可直接替换并保持文件名，也可以修改配置中的路径。
 
 ## 发布内容
+
+首页的“精选文章”会在构建时自动取已发布文章中最近更新的 3 篇：有 `updated` 时按它排序，否则按 `date` 排序。新增或修改文章后重新构建即可刷新首页。
+
+关于页正文位于 `siteConfig.about.body`，现在页标题、说明、更新时间和正文位于 `siteConfig.now`。正文中的 `{{author}}`、`{{identity}}`、`{{city}}`、`{{notesLabel}}`、`{{email}}`、`{{githubUrl}}` 和 `{{nowUpdated}}` 会在构建时替换为站点配置中的对应值。
 
 ### 新文章
 

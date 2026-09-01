@@ -5,8 +5,8 @@ import { ArrowUpRightIcon, GithubIcon, MailIcon, RssIcon } from "@/components/ic
 import { ArticleCard } from "@/components/ArticleCard";
 import { NoteItem } from "@/components/NoteItem";
 import { ProjectCard } from "@/components/ProjectCard";
-import { siteConfig } from "@/config/site";
-import { getAllArticles, getAllNotes, getAllProjects } from "@/lib/content";
+import { getNavigationLabel, siteConfig } from "@/config/site";
+import { getAllArticles, getAllNotes, getAllProjects, getRecentlyUpdatedArticles } from "@/lib/content";
 import { absoluteUrl, githubProfileUrl, withBasePath } from "@/lib/paths";
 
 export const metadata: Metadata = {
@@ -19,7 +19,8 @@ export default function HomePage() {
   const articles = getAllArticles();
   const notes = getAllNotes();
   const projects = getAllProjects();
-  const featuredArticles = articles.filter((article) => article.featured).slice(0, 3);
+  const notesLabel = getNavigationLabel("/notes/", "随笔");
+  const featuredArticles = getRecentlyUpdatedArticles();
   const featuredProjects = projects.filter((project) => project.featured).slice(0, 3);
 
   return (
@@ -64,7 +65,7 @@ export default function HomePage() {
       </section>
 
       <section className="section" aria-labelledby="notes-title">
-        <div className="section-heading"><h2 id="notes-title">最近短笔记</h2><Link href="/notes/">所有笔记<ArrowUpRightIcon /></Link></div>
+        <div className="section-heading"><h2 id="notes-title">最近{notesLabel}</h2><Link href="/notes/">所有{notesLabel}<ArrowUpRightIcon /></Link></div>
         <div className="note-list">{notes.slice(0, 4).map((note) => <NoteItem key={note.slug} note={note} />)}</div>
       </section>
 
