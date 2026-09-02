@@ -72,6 +72,7 @@ export const siteConfig = {
     { label: "文章", href: "/articles/" },
     { label: "随笔", href: "/notes/" },
     { label: "项目", href: "/projects/" },
+    { label: "情侣空间", href: "/love/" },
     { label: "关于", href: "/about/" },
   ],
 } as const;

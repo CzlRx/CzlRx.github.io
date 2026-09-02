@@ -5,6 +5,7 @@ import { ArrowUpRightIcon, GithubIcon, MailIcon, RssIcon } from "@/components/ic
 import { ArticleCard } from "@/components/ArticleCard";
 import { NoteItem } from "@/components/NoteItem";
 import { ProjectCard } from "@/components/ProjectCard";
+import { LoveEntryCard } from "@/components/LoveEntryCard";
 import { getNavigationLabel, siteConfig } from "@/config/site";
 import { getAllArticles, getAllNotes, getAllProjects, getRecentlyUpdatedArticles } from "@/lib/content";
 import { absoluteUrl, githubProfileUrl, withBasePath } from "@/lib/paths";
@@ -42,6 +43,8 @@ export default function HomePage() {
           <span className="portrait-note">steady, then strong.</span>
         </div>
       </section>
+
+      <LoveEntryCard />
 
       <section className="section" aria-labelledby="featured-title">
         <div className="section-heading">
