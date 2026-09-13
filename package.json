@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && node scripts/generate-static-files.mjs && pagefind --site out",
+    "build": "next build && node --experimental-strip-types scripts/generate-static-files.mjs && pagefind --site out",
     "start": "npx serve out",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit"
