@@ -234,6 +234,39 @@ button { color: inherit; }
 .article-actions { display: flex; justify-content: space-between; gap: 1rem; padding-block: 1.2rem; border-block: 1px solid var(--border); }
 .article-actions button { display: inline-flex; align-items: center; gap: .4rem; min-height: 42px; padding: .45rem .7rem; color: var(--muted); background: transparent; border: 0; cursor: pointer; }
 .article-actions button:hover { color: var(--accent); }
+.comments {
+  margin-top: 3.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--border);
+}
+.comments-header { margin-bottom: 1.6rem; }
+.comments-header .eyebrow { margin-bottom: .55rem; }
+.comments-header h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(1.55rem, 3vw, 1.9rem);
+  font-weight: 650;
+  letter-spacing: -.02em;
+  line-height: 1.25;
+}
+.comments-note {
+  max-width: 36rem;
+  margin: .7rem 0 0;
+  color: var(--muted);
+  font-size: .9rem;
+  line-height: 1.7;
+}
+.comments-frame {
+  min-height: 180px;
+  padding: 1.15rem 1.15rem .4rem;
+  background: color-mix(in srgb, var(--surface) 72%, transparent);
+  border: 1px solid var(--border);
+  border-radius: .25rem;
+}
+.comments-frame .giscus,
+.comments-frame .giscus-frame {
+  width: 100%;
+}
 .post-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 3rem; }
 .post-nav a { padding: 1.2rem; border: 1px solid var(--border); transition: background .18s ease, border-color .18s ease; }
 .post-nav a:hover { background: var(--surface); border-color: var(--accent); }

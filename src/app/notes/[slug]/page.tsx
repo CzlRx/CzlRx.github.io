@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ArticleActions } from "@/components/ArticleActions";
+import { Comments } from "@/components/Comments";
 import { MarkdownContent } from "@/components/MarkdownContent";
 import { TagLink } from "@/components/TagLink";
 import { getAllNotes, getNote } from "@/lib/content";
@@ -37,6 +38,7 @@ export default async function NotePage({ params }: NotePageProps) {
       <MarkdownContent html={html} />
       <div className="article-end"><span>记于此刻</span></div>
       <ArticleActions />
+      <Comments />
     </article>
   );
 }

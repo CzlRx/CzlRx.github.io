@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArticleActions } from "@/components/ArticleActions";
+import { Comments } from "@/components/Comments";
 import { MarkdownContent } from "@/components/MarkdownContent";
 import { ReadingProgress } from "@/components/ReadingProgress";
 import { TableOfContents } from "@/components/TableOfContents";
@@ -81,6 +82,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             <MarkdownContent html={html} />
             <div className="article-end"><span>写到这里</span></div>
             <ArticleActions />
+            <Comments />
             {(previous || next) ? (
               <nav className="post-nav" aria-label="上一篇和下一篇">
                 {previous ? <Link href={`/articles/${previous.slug}/`}><span>上一篇</span><strong>{previous.title}</strong></Link> : <span />}
