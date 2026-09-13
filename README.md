@@ -1,17 +1,31 @@
 # CzlRx 的个人博客
 
-一个使用 Next.js App Router、TypeScript、Tailwind CSS、Markdown 和 Pagefind 构建的纯静态个人博客。站点不需要数据库或常驻 Node.js 服务，构建结果位于 `out/`，可直接部署到 GitHub Pages。
+[在线阅读](https://czlrx.github.io) · [RSS](https://czlrx.github.io/rss.xml) · [关于我](https://czlrx.github.io/about/)
+
+我是 **CzlRx**，软件工程学生，目前在江苏常州。正在努力成为一名可靠的后端工程师。这里记录我对后端工程、计算机基础和日常生活的理解——不追求高频，只希望每次写下的东西都足够诚实。
+
+本仓库是站点源码，也是 GitHub Pages 用户站点 [`CzlRx.github.io`](https://czlrx.github.io) 的发布来源。推送到 `main` 后，GitHub Actions 会构建纯静态产物并发布，不需要数据库或常驻 Node.js 服务。
+
+## 技术栈
+
+- [Next.js](https://nextjs.org/) App Router + TypeScript，`output: "export"` 静态导出
+- [Tailwind CSS](https://tailwindcss.com/) 与少量客户端增强
+- Markdown（GFM）内容管理，构建期解析
+- [Pagefind](https://pagefind.app/) 纯静态全文搜索
+- [Giscus](https://giscus.app/) 评论（GitHub Discussions）
+- GitHub Actions → GitHub Pages
 
 ## 功能
 
-- 首页、文章、短笔记、项目、关于、现在、标签、年度归档和搜索页面
-- Markdown 内容管理、目录、标题锚点、阅读时长、相关文章、上一篇/下一篇
+- 首页、文章、随笔、项目、关于、现在、标签、年度归档和搜索
+- Markdown 目录、标题锚点、阅读时长、相关文章、上一篇 / 下一篇
 - GFM 表格、脚注、代码高亮与复制按钮
 - 浅色、深色和跟随系统三种主题
-- Pagefind 纯静态全文搜索
-- RSS、sitemap.xml、robots.txt、Open Graph 与 JSON-LD
-- GitHub Pages 根路径与仓库子路径自动兼容
-- GitHub Actions 自动构建与部署
+- 文章与随笔页的 Giscus 评论，主题随站点明暗切换
+- Pagefind 浏览器端全文搜索
+- RSS、`sitemap.xml`、`robots.txt`、Open Graph 与 JSON-LD
+- GitHub Pages 根路径（`username.github.io`）与仓库子路径自动兼容
+- 情侣空间：恋爱计时、纪念日、动态、相册与暗号彩蛋
 
 ## 环境要求
 
@@ -25,7 +39,7 @@ npm install
 npm run dev
 ```
 
-开发站点默认打开 `http://localhost:3000`，本地开发不会添加 GitHub 仓库子路径。
+开发站点默认打开 [http://localhost:3000](http://localhost:3000)。本地开发不会添加 GitHub 仓库子路径。
 
 完整验证：
 
@@ -35,72 +49,32 @@ npm run typecheck
 npm run build
 ```
 
-`npm run build` 会依次执行 Next.js 静态导出、RSS/站点地图生成和 Pagefind 建索引。完成后可以运行：
+`npm run build` 会依次执行 Next.js 静态导出、RSS / 站点地图生成和 Pagefind 建索引。完成后可以运行：
 
 ```bash
 npm run start
 ```
 
-## 修改个人信息
+开发模式没有 Pagefind 索引，搜索页不可用；需要预览搜索时请走上面的 `build` + `start`。
 
-所有常用站点资料集中在 [`src/config/site.ts`](src/config/site.ts)：
+## 修改站点资料
+
+常用站点资料集中在 [`src/config/site.ts`](src/config/site.ts)：
 
 - 博客名称、作者、介绍、身份与城市
 - 邮箱与 GitHub 用户名
-- 仓库名与默认网站域名
+- 默认网站域名（当前为 `https://czlrx.github.io`）
 - 头像、默认分享图、主题色
-- 导航、“现在”摘要与现在页正文
+- 导航、「现在」摘要与现在页正文
 - 关于页标题、方向与正文
 
-当前 `repositoryName` 使用 `MyBlog`，请在仓库名不同时修改。默认头像和分享图在 `public/images/`，可直接替换并保持文件名，也可以修改配置中的路径。
+默认头像和分享图在 `public/images/`，可直接替换并保持文件名，也可以修改配置中的路径。
 
-### 情侣空间
+正文中的 `{{author}}`、`{{identity}}`、`{{city}}`、`{{notesLabel}}`、`{{email}}`、`{{githubUrl}}` 和 `{{nowUpdated}}` 会在构建时替换为站点配置中的对应值。
 
-首页的“我们的小小角落”卡片会进入 `/love/`。情侣空间的开始日期、双方名称、头像、城市天气、恋爱大事件、相册和暗号位于 [`src/config/love.ts`](src/config/love.ts)：
-
-- `startDate` 已设置为 `2023-02-20`，恋爱计时器和纪念日倒计时会自动计算
-- 将 `people.partner.avatar` 替换为对象的头像，并按需修改双方名称
-- 在 `places` 中填写城市、天气、温度和距离；静态站点默认使用手动记录，不会自动请求天气接口
-- 动态和照片只从配置文件展示，访客没有发布或上传入口；将照片放入 `public/images/love/` 后，在配置中填写对应路径
-- 每次修改 `src/config/love.ts` 后重新构建并发布，内容就会随网站版本一起持久保存
-- 将长信内容写入 `secret.body`，并修改 `secret.code`；静态前端暗号只是彩蛋，不适合存放真正需要保密的资料
-
-目前 `public/images/partner-avatar.jpg` 是对象头像。由于内容由代码管理，提交并发布仓库后，所有访客看到的都是同一份动态和相册。
-
-动态配置示例：
-
-```ts
-posts: [
-  {
-    id: "post-2026-09-02",
-    title: "今天想和你分享",
-    date: "2026.09.02",
-    mood: "想念",
-    content: "把这段文字替换成你们真实的日常。",
-  },
-],
-```
-
-照片配置示例：
-
-```ts
-photos: [
-  {
-    id: "photo-2026-09-02-01",
-    src: "/images/love/our-day-01.jpg",
-    title: "照片名称",
-    alt: "照片描述",
-    location: "拍摄地点",
-    date: "2026.09.02",
-  },
-],
-```
+首页「精选文章」会在构建时自动取已发布文章中最近更新的 3 篇：有 `updated` 时按它排序，否则按 `date` 排序。新增或修改文章后重新构建即可刷新首页。
 
 ## 发布内容
-
-首页的“精选文章”会在构建时自动取已发布文章中最近更新的 3 篇：有 `updated` 时按它排序，否则按 `date` 排序。新增或修改文章后重新构建即可刷新首页。
-
-关于页正文位于 `siteConfig.about.body`，现在页标题、说明、更新时间和正文位于 `siteConfig.now`。正文中的 `{{author}}`、`{{identity}}`、`{{city}}`、`{{notesLabel}}`、`{{email}}`、`{{githubUrl}}` 和 `{{nowUpdated}}` 会在构建时替换为站点配置中的对应值。
 
 ### 新文章
 
@@ -122,7 +96,7 @@ draft: false
 
 将 `draft` 设为 `true` 时，开发环境仍可预览，生产构建会排除该内容。
 
-### 新短笔记
+### 新随笔
 
 在 `content/notes/` 新建 `.md` 文件：
 
@@ -156,29 +130,81 @@ draft: false
 ---
 ```
 
-## 创建仓库并部署
+## 评论
 
-1. 在 GitHub 创建空仓库，不要勾选自动生成 README。
-2. 在项目目录初始化并推送：
+文章和随笔正文末尾使用 [Giscus](https://giscus.app/)，访客用 GitHub 账号登录后即可评论，内容保存在本仓库的 Discussions 中。
 
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial blog"
-   git branch -M main
-   git remote add origin https://github.com/CzlRx/MyBlog.git
-   git push -u origin main
-   ```
+当前组件 [`src/components/Comments.tsx`](src/components/Comments.tsx) 已绑定仓库 `CzlRx/CzlRx.github.io`。明暗主题样式位于 `public/giscus/`，会随站点主题切换。
 
-3. 打开仓库的 **Settings → Pages**，在 **Build and deployment** 中选择 **GitHub Actions**。
-4. 推送到默认分支后，`.github/workflows/deploy.yml` 会自动执行 `npm ci`、Lint、构建并部署 `out/`。
+若要复用到其他仓库：
 
-工作流会读取 `GITHUB_REPOSITORY`：
+1. 在目标仓库启用 Discussions，并创建一个 Giscus 使用的分类；
+2. 到 [giscus.app](https://giscus.app/) 生成 `data-repo`、`data-repo-id`、`data-category` 和 `data-category-id`；
+3. 更新 `Comments.tsx` 中的对应属性。
 
-- 普通仓库 `owner/repository` 自动使用 `/repository` 作为 `basePath`；
-- 仓库名为 `owner.github.io` 时使用根路径，不添加 `basePath`。
+## 情侣空间
 
-无需把 `out/` 提交到源码分支。
+首页的「我们的小小角落」卡片会进入 `/love/`。开始日期、双方名称、头像、城市天气、恋爱大事件、相册和暗号位于 [`src/config/love.ts`](src/config/love.ts)：
+
+- `startDate` 已设置为 `2023-02-20`，恋爱计时器和纪念日倒计时会自动计算
+- 将 `people.partner.avatar` 替换为对象的头像，并按需修改双方名称
+- 在 `places` 中填写城市、天气、温度和距离；静态站点默认使用手动记录，不会自动请求天气接口
+- 动态和照片只从配置文件展示，访客没有发布或上传入口；将照片放入 `public/images/`（或子目录）后，在配置中填写对应路径
+- 每次修改 `src/config/love.ts` 后重新构建并发布，内容就会随网站版本一起持久保存
+- 将长信内容写入 `secret.body`，并修改 `secret.code`。静态前端暗号只是彩蛋，不适合存放真正需要保密的资料
+
+目前 `public/images/partner-avatar.jpg` 是对象头像。由于内容由代码管理，提交并发布仓库后，所有访客看到的都是同一份动态和相册。
+
+动态配置示例：
+
+```ts
+posts: [
+  {
+    id: "post-2026-09-02",
+    title: "今天想和你分享",
+    date: "2026.09.02",
+    mood: "想念",
+    content: "把这段文字替换成你们真实的日常。",
+  },
+],
+```
+
+照片配置示例：
+
+```ts
+photos: [
+  {
+    id: "photo-2026-09-02-01",
+    src: "/images/our-day-01.jpg",
+    title: "照片名称",
+    alt: "照片描述",
+    location: "拍摄地点",
+    date: "2026.09.02",
+  },
+],
+```
+
+## 部署
+
+当前仓库名是 `CzlRx.github.io`，GitHub Pages 会把它发布到域名根路径 [https://czlrx.github.io](https://czlrx.github.io)。
+
+工作流 [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) 会在默认分支推送或手动触发时执行 `npm ci`、Lint、构建，并部署 `out/`。
+
+请在仓库 **Settings → Pages** 的 **Build and deployment** 中选择 **GitHub Actions**。无需把 `out/` 提交到源码分支。
+
+工作流会读取 `GITHUB_REPOSITORY` 决定 `basePath`：
+
+- 用户 / 组织站点 `owner.github.io` 使用根路径，不添加 `basePath`（当前仓库属于这一类）
+- 普通仓库 `owner/repository` 自动使用 `/repository` 作为 `basePath`
+
+如果把这份源码放到别的仓库：
+
+```bash
+git remote set-url origin https://github.com/<owner>/<repository>.git
+git push -u origin main
+```
+
+然后同样把 Pages 构建来源设为 GitHub Actions。
 
 ## 环境变量与自定义域名
 
@@ -204,16 +230,19 @@ draft: false
 - **换成自定义域名后仍带仓库名**：把 Actions 变量 `BASE_PATH` 设为空，并重新运行工作流。
 - **文章刷新 404**：保留 `trailingSlash: true`，并确认上传的是完整 `out/` 目录。
 - **开发模式搜索不可用**：Pagefind 只在生产构建后生成；运行 `npm run build` 和 `npm run start` 预览搜索。
+- **评论框不出现**：确认仓库已启用 Discussions，且 `Comments.tsx` 中的仓库与分类 ID 仍然有效。
 
 ## 目录结构
 
 ```text
-content/             Markdown 内容
+content/             Markdown 内容（articles / notes / projects）
 public/images/       本地图片资源
+public/giscus/       评论框明暗主题
 scripts/             构建后静态文件生成脚本
 src/app/             App Router 页面
 src/components/      界面与少量客户端增强组件
 src/config/site.ts   站点资料
+src/config/love.ts   情侣空间资料
 src/lib/             内容、Markdown 与路径工具
 .github/workflows/   GitHub Pages 部署工作流
 ```
