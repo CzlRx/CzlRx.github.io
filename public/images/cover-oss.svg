@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700">
+  <rect width="1200" height="700" fill="#EEE5D8"/>
+  <text x="118" y="108" fill="#716B61" font-family="Georgia, serif" font-size="32" letter-spacing="6">BYTES GO TO THE BUCKET</text>
+  <path d="M118 168h964" fill="none" stroke="#D3C8B8" stroke-width="3"/>
+  <rect x="118" y="236" width="248" height="292" fill="#F6F1E8" stroke="#292720" stroke-width="4"/>
+  <path d="M148 286h188M148 332h152M148 378h176" fill="none" stroke="#8E877C" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="242" cy="454" r="28" fill="#D9B9A6" stroke="#292720" stroke-width="4"/>
+  <path d="M398 382h92" fill="none" stroke="#B5533C" stroke-width="14" stroke-linecap="round"/>
+  <path d="M458 354l48 28-48 28" fill="none" stroke="#B5533C" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M548 214h296l48 348H500z" fill="#F7F2EA" stroke="#292720" stroke-width="4"/>
+  <path d="M500 562h392l-40 52H540z" fill="#B5533C" stroke="#292720" stroke-width="4"/>
+  <rect x="584" y="268" width="88" height="68" fill="#E4D4C4" stroke="#292720" stroke-width="3"/>
+  <rect x="692" y="292" width="88" height="68" fill="#D9B9A6" stroke="#292720" stroke-width="3"/>
+  <rect x="632" y="384" width="112" height="78" fill="#C9A090" stroke="#292720" stroke-width="3"/>
+  <path d="M892 382h92" fill="none" stroke="#292720" stroke-width="8" stroke-linecap="round"/>
+  <path d="M952 360l48 22-48 22" fill="none" stroke="#292720" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="834" y="236" width="248" height="292" fill="#23211D" stroke="#292720" stroke-width="4"/>
+  <path d="M874 292h168M874 344h132M874 396h152" fill="none" stroke="#7A7368" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="958" cy="456" r="28" fill="#F1E8DB"/>
+</svg>
